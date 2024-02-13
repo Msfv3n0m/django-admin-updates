@@ -1,9 +1,9 @@
-Django Admin Comments
+Django Admin Updates
 =============================
 
 |image1| |image2| |image3| |image4|
 
-A reusable Django application that adds simple admin-panel comments
+A reusable Django application that adds simple admin-panel updates
 to any model, allowing Django Administrators to communicate
 on certain objects more easily.
 
@@ -12,11 +12,11 @@ on certain objects more easily.
 Quickstart
 ----------
 
--  Install Django Admin Comments:
+-  Install Django Admin Updates:
 
    ::
 
-       $ pip install django-admin-comments
+      copy the admin_updates folder to your project root
 
 -  Add it to your ``INSTALLED_APPS``:
 
@@ -24,7 +24,7 @@ Quickstart
 
        INSTALLED_APPS = (
            ...
-           'admin_comments',
+           'admin_updates',
            ...
        )
 
@@ -34,50 +34,50 @@ Quickstart
 
        $ manage.py migrate
 
-- Now, simply add the ``CommentInline`` to any ``ModelAdmin``
+- Now, simply add the ``UpdateInline`` to any ``ModelAdmin``
 
    .. code:: python
 
-       from admin_comments.admin import CommentInline
+       from admin_updates.admin import UpdateInline
 
        class MyModelAdmin(admin.ModelAdmin):
            model = MyModel
-           inlines = [CommentInline,]
+           inlines = [UpdateInline,]
 
 Settings
 --------
 
--  ``ADMIN_COMMENTS_SHOW_EMPTY``: Should the comment forms display an empty
+-  ``admin_updates_SHOW_EMPTY``: Should the comment forms display an empty
    form field by default? (Default: ``False``)
 
    Example:
 
    .. code:: python
 
-       ADMIN_COMMENTS_SHOW_EMPTY = True
+       admin_updates_SHOW_EMPTY = True
 
--  ``ADMIN_COMMENTS_FORM_CLASS``: Override the default class used for the comment
-   form. (Default: ``"admin_comments.forms.CommentInlineForm"``)
-
-   Example:
-
-   .. code:: python
-
-       ADMIN_COMMENTS_FORM_CLASS = "myapp.forms.MyCustomCommentForm"
-
--  ``ADMIN_COMMENTS_FORMSET_CLASS``: Override the default class used for the comment
-   formset. (Default: ``"admin_comments.forms.CommentInlineFormset"``)
+-  ``admin_updates_FORM_CLASS``: Override the default class used for the comment
+   form. (Default: ``"admin_updates.forms.UpdateInlineForm"``)
 
    Example:
 
    .. code:: python
 
-       ADMIN_COMMENTS_FORMSET_CLASS = "myapp.forms.MyCustomCommentFormSet"
+       admin_updates_FORM_CLASS = "myapp.forms.MyCustomUpdateForm"
+
+-  ``admin_updates_FORMSET_CLASS``: Override the default class used for the comment
+   formset. (Default: ``"admin_updates.forms.UpdateInlineFormset"``)
+
+   Example:
+
+   .. code:: python
+
+       admin_updates_FORMSET_CLASS = "myapp.forms.MyCustomUpdateFormSet"
 
 Features
 --------
 
--  Generic comment model to add comments to any object
+-  Generic comment model to add updates to any object
 -  Simple configuration without the overhead of the Django Comments Framework
 -  Overridable Form and Formset classes
 

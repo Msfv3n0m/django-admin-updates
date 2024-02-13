@@ -3,9 +3,10 @@ from django.db import models
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django_quill.fields import QuillField
 
 
-class Comment(models.Model):
+class Update(models.Model):
 
     # Support integer and UUID primary keys
     object_id = models.CharField(
@@ -33,7 +34,7 @@ class Comment(models.Model):
         auto_now_add=True
     )
 
-    comment = models.TextField(
+    update = QuillField(
         blank=False
     )
 
@@ -41,4 +42,4 @@ class Comment(models.Model):
         return self.time.strftime("%b. %d, %Y, %-I:%M %p")
 
 
-__all__ = ['Comment']
+__all__ = ['Update']
