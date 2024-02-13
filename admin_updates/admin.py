@@ -10,7 +10,7 @@ class UpdateInline(GenericTabularInline):
 
     readonly_fields = ('user',)
 
-    classes = ['collapse']
+    # classes = ['collapse']
 
     def __init__(self, *args, **kwargs):
         form_klass = getattr(
